@@ -315,11 +315,7 @@ class FileCache {
 				return (string)$body;
 			}
 		} catch (\Exception $e) {
-			$exceptionType = get_class($e);
-			$errorMsg = $exceptionType;
-			$request = $e->getRequest();
-			$requestMsg = \GuzzleHttp\Psr7\str($request);
-			//return 'Error getting content from: '.$uri.'. Request: '.$requestMsg;
+			// The request failed (connection error, timeout, or HTTP error status): return false below
 		}
 		return false;
 	}
